@@ -11,6 +11,6 @@ CACHE: california_health
 
 PARTITIONS:
 
-cdc.gov-brfss-brfss
-cdc.gov-mrfei-mrfei
-usda.gov-snap_retailers-snaps
+oshpd.ca.gov-mssa
+oshpd.ca.gov-hmsa
+
