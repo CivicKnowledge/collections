@@ -11,9 +11,7 @@ cache: us_health
 
 PARTITIONS:
 
-oshpd.ca.gov-mssa
-oshpd.ca.gov-hmsa
 
-cdc.gov-brfss-brfss
+cdc.gov-brfss-brfss-ca
 cdc.gov-mrfei-mrfei
 usda.gov-snap_retailers-snaps
