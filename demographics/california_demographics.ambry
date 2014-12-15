@@ -1,0 +1,14 @@
+TITLE: California Demographics
+
+Demographics, mostly from the Census, restricted to California
+
+
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+DATABASE: sqlite:///california_demo.db
+cache: california_demo
+
+PARTITIONS:
+
+oshpd.ca.gov-zcta_boundaries-zcta-geo
+oshpd.ca.gov-zip_boundaries-zips-geo
+census.gov-acs-p5ye2012-geoid-b25026-estimates

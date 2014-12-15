@@ -1,0 +1,19 @@
+TITLE: California Education
+
+Datasets from the California Department of Education
+
+UID: mRegG4fuT0
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+DATABASE: sqlite:///california_education.db
+cache: california_education
+
+PARTITIONS:
+
+cde.ca.gov-api-combined-api_base
+cde.ca.gov-api-combined-api_growth
+cde.ca.gov-schools-orig-public_schools
+cde.ca.gov-schools-orig-private_schools_2011-2011
+cde.ca.gov-enrollment-1993e-enroll09
+cde.ca.gov-enrollment-1993e-enroll93
+cde.ca.gov-enrollment-1993e-enroll98
+

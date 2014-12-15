@@ -1,0 +1,16 @@
+TITLE: US Health
+
+A variety of national health datasets.
+
+This is a second sentence that should not show up in manifest or database summaries. 
+
+UID: muXoDdPSh6
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+DATABASE: sqlite:///us_health.db
+cache: us_health
+
+PARTITIONS:
+
+oshpd.ca.gov-mssa
+oshpd.ca.gov-hmsa
+

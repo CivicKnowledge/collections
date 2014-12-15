@@ -1,0 +1,16 @@
+TITLE: CA Health
+
+A variety of California health datasets.
+
+This is a second sentence that should not show up in manifest or database summaries. 
+
+UID: mYI43RkMEj
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+DATABASE: sqlite:///california_health.db
+CACHE: california_health
+
+PARTITIONS:
+
+cdc.gov-brfss-brfss
+cdc.gov-mrfei-mrfei
+usda.gov-snap_retailers-snaps
