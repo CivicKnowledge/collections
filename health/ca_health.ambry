@@ -11,6 +11,6 @@ CACHE: california_health
 
 PARTITIONS:
 
-oshpd.ca.gov-mssa
-oshpd.ca.gov-hmsa
+oshpd.ca.gov-mssa-mssa_2010-geo
+cdc.gov-brfss-brfss-ca
 

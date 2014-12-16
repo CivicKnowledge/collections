@@ -12,6 +12,6 @@ cache: us_health
 PARTITIONS:
 
 
-cdc.gov-brfss-brfss-ca
+
 cdc.gov-mrfei-mrfei
 usda.gov-snap_retailers-snaps
