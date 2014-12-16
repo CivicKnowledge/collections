@@ -1,0 +1,16 @@
+TITLE: San Diego Devlopment Services
+
+Datasets related to parcels and permits in the City of San Diego. 
+
+UID: msYOT21P8B
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+DATABASE: sqlite:///dsd.db
+cache: dsd
+
+PARTITIONS:
+
+sandiego.gov-opendsd-json-json-projects
+sandiego.gov-opendsd-json-json-approvals
+sandiego.gov-opendsd-index-permits-issued
+sandiego.gov-opendsd-index-permits-completed
+sandiego.gov-opendsd-index-applications-received
