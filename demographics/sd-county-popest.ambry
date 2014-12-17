@@ -21,8 +21,9 @@ INDEX: gvid_2 ON p03b00F001_b01003_estimates  gvid
 
 VIEW: acs_tracts
 
-SELECT * FROM "p02G001004_geofile" 
-JOIN  p03b00F001_b01003_estimates on p02G001004_geofile.gvid = p03b00F001_b01003_estimates.gvid
+SELECT "p02G001004_geofile".*,  "p03b00F001_b01003_estimates".b01003001
+FROM "p02G001004_geofile" 
+JOIN  "p03b00F001_b01003_estimates" on "p02G001004_geofile".gvid = "p03b00F001_b01003_estimates".gvid
 WHERE STATE = 6 and county = 73 AND sumlevel = 140
 
 DOC:
