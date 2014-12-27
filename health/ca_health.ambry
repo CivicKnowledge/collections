@@ -6,11 +6,60 @@ This is a second sentence that should not show up in manifest or database summar
 
 UID: mYI43RkMEj
 AUTHOR: Eric Busboom <eric@sandiegodata.org>
-DATABASE: sqlite:///california_health.db
+DATABASE: spatialite:///california_health.db
 CACHE: california_health
 
 PARTITIONS:
 
 oshpd.ca.gov-mssa-mssa_2010-geo
+oshpd.ca.gov-mssa-mssa_tracts_2010-geo
+oshpd.ca.gov-hmsa-primarypro-geo
+oshpd.ca.gov-hmsa-primarycare-geo
+oshpd.ca.gov-hmsa-nurse-geo
+oshpd.ca.gov-hmsa-mental-geo
+oshpd.ca.gov-hmsa-dental-geo
 cdc.gov-brfss-brfss-ca
+oshpd.ca.gov-facilities-facilities
+oshpd.ca.gov-facilities-facilities_blockgroups
+cdc.gov-mrfei-mrfei
+civicknowledge.com-geography-census-tracts-2012
+civicknowledge.com-geography-census-blockgroups-2012
+
+census.gov-acs-geo-p5ye2012-geofile
+census.gov-acs-p5ye2012-geoid-b01003-estimates # total population
+census.gov-acs-p5ye2012-geoid-b01003-margins
+census.gov-acs-p5ye2012-geoid-b19083-estimates # gini index
+census.gov-acs-p5ye2012-geoid-b17001-estimates # Poverty Status In The Past 12 Months By Sex By Age
+census.gov-acs-p5ye2012-geoid-b19113-estimates #  Median Family Income In The Past 12 Months (In 2012 Inflation-Adjusted Dollars)
+census.gov-acs-p5ye2012-geoid-b27001-estimates # Health Insurance Coverage Status By Sex By Age
+
+VIEW: facilities_blockgroups
+
+SELECT * FROM
+    t03j01002 as facilities
+JOIN t03j03002 AS facilities_blockgroups ON facilities.id = facilities_blockgroups.facilities_id
+JOIN p03a00a_blockgroups ON facilities_blockgroups.gvid = p03a00a_blockgroups.gvid
+
+
+VIEW: facilities_count_counties
+
+SELECT count(*) AS count, type, state, county, tract 
+FROM facilities_blockgroups 
+WHERE year = 2013 GROUP BY state, county, type;
+ 
+
+MVIEW: acs
+
+SELECT * FROM p02G001_geofile
+JOIN p03b00F_b01003_estimates ON p02G001_geofile.gvid = p03b00F_b01003_estimates.gvid
+JOIN p03b0ua_b27001_estimates ON p02G001_geofile.gvid = p03b0ua_b27001_estimates.gvid
+JOIN p03b0cw_b17001_estimates ON p02G001_geofile.gvid = p03b0cw_b17001_estimates.gvid
+JOIN p03b0ka_b19113_estimates ON p02G001_geofile.gvid = p03b0ka_b19113_estimates.gvid
+JOIN p03b0gW_b19083_estimates ON p02G001_geofile.gvid = p03b0gW_b19083_estimates.gvid
+WHERE state = 6 and sumlevel = 50;
+
+DOC:
+
+A Collection of several ACS tables. 
+
 

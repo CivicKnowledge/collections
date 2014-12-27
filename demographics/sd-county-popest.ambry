@@ -31,3 +31,4 @@ DOC:
 Link the ACS geofile to ACS variables, most importantly, the population values that are similar to the ones in the SANDAG population estimates. 
 
 
+ambry warehouse -d sa3ko7FFrX config url=104.131.33.197:81
