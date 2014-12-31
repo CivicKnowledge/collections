@@ -4,7 +4,7 @@ Population estimates for San Diego County, provided by SANDAG. This collection a
 and economic data from the Social Security Trustees' report, to allow making estimates of SSI recipients. 
 
 AUTHOR: Eric Busboom <eric@sandiegodata.org>
-DATABASE: spatialite:///popest1525.db
+DATABASE: sqlite:///popest1525.db
 CACHE: popest
 UID: mImXqL1Uho
 
@@ -52,7 +52,6 @@ VIEW: tract_forecasts
 
 SELECT 
     "p03d002_forecast13".*,"c03l01004_code", "c03b0n003_b01003001"
-    
 FROM casnd_geofile 
 JOIN "p03b00F_b01003_estimates" ON "c03b0n002_gvid" = "c02G0100S_gvid"
 JOIN "p03d002_forecast13" ON "c03d01002_censustract2010" = "c02G0100f_tract"
