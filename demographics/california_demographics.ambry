@@ -7,8 +7,25 @@ AUTHOR: Eric Busboom <eric@sandiegodata.org>
 DATABASE: sqlite:///california_demo.db
 cache: california_demo
 
+UID: mdLHIryTBa
+
 PARTITIONS:
 
 oshpd.ca.gov-zcta_boundaries-zcta-geo
 oshpd.ca.gov-zip_boundaries-zips-geo
+census.gov-tigerline-2012-tracts-ca-geo
+census.gov-acs-geo-p5ye2012-geofile
 census.gov-acs-p5ye2012-geoid-b25026-estimates
+census.gov-acs-p5ye2012-geoid-b01003-estimates
+census.gov-acs-p5ye2012-geoid-b17001-estimates
+census.gov-acs-p5ye2012-geoid-b19083-estimates
+
+VIEW: acs_2008_2012
+
+SELECT *
+FROM p02G001004_geofile 
+	 INNER JOIN p03b00F001_b01003_estimates  ON p03b00F001_b01003_estimates.c03b0n002_gvid = p02G001004_geofile.c02G0100S_gvid
+	 INNER JOIN p03b0cw_b17001_estimates ON p02G001004_geofile.c02G0100S_gvid = p03b0cw_b17001_estimates.c03b6S002_gvid
+	 INNER JOIN p03b0gW_b19083_estimates ON p02G001004_geofile.c02G0100S_gvid = p03b0gW_b19083_estimates.c03b98002_gvid
+	 INNER JOIN p03b0iC001_b25026_estimates ON p03b0iC001_b25026_estimates.c03bcV002_gvid = p02G001004_geofile.c02G0100S_gvid
+WHERE p02G001004_geofile.c02G0100b_state = 6 AND p02G001004_geofile.c02G0100c_county = 73;

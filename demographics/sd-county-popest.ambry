@@ -4,7 +4,7 @@ Population estimates for San Diego County, provided by SANDAG. This collection a
 and economic data from the Social Security Trustees' report, to allow making estimates of SSI recipients. 
 
 AUTHOR: Eric Busboom <eric@sandiegodata.org>
-DATABASE: sqlite:///popest1525.db
+DATABASE: spatialite:///popest1525.db
 CACHE: popest
 UID: mImXqL1Uho
 
@@ -13,22 +13,58 @@ PARTITIONS:
 sandag.org-popest-forecast13
 sandag.org-popest-descriptions
 ssa.gov-oasdi_trustee_report-vb1-intermediate
+sandiegodata.org-places-casnd-places-geo
+sandiegodata.org-places-casnd-places_tracts
 census.gov-acs-p5ye2012-geoid-b01003-estimates
 census.gov-acs-geo-p5ye2012-geofile
+census.gov-tigerline-2012-tracts-ca-geo
+census.gov-acs-geo-p5ye2012-geofile
 
-INDEX: gvid_1 ON p02G001004_geofile  gvid
-INDEX: gvid_2 ON p03b00F001_b01003_estimates  gvid
+INDEX: gvid_1 ON "p02G001004_geofile"" "c02G0100S_gvid""
+INDEX: gvid_2 ON "p03b00F001_b01003_estimates" "c03b0n002_gvid"
 
-VIEW: acs_tracts
+VIEW: casnd_geofile
 
-SELECT "p02G001004_geofile".*,  "p03b00F001_b01003_estimates".b01003001
-FROM "p02G001004_geofile" 
-JOIN  "p03b00F001_b01003_estimates" on "p02G001004_geofile".gvid = "p03b00F001_b01003_estimates".gvid
-WHERE STATE = 6 and county = 73 AND sumlevel = 140
+SELECT 
+    "c02G0100f_tract", 
+	"c02G0100S_gvid"
+FROM "p02G001_geofile"
+WHERE "c02G0100b_state" = 6 AND "c02G0100c_county" = 73 and "c02G01004_sumlevel" = 140
 
-DOC:
+DOC: 
 
-Link the ACS geofile to ACS variables, most importantly, the population values that are similar to the ones in the SANDAG population estimates. 
+A view of the ACS geofile that is limited to tracts in San Diego county. This is primarily used to link the
+tract numbers, used in the forecast13 file, to gvids
+
+VIEW: cities_tracts
+
+SELECT * 
+FROM "p03l001_places"
+JOIN "p03l003_places_tracts" ON "c03l03002_places_id" = "c03l01001_id"
+JOIN "p02501N_tracts" ON "c02502002_gvid" = "c03l03003_gvid"
+WHERE c03l01002_type = 'city'
+
+DOC: 
+
+An association between tracts and cities
+
+VIEW: tract_forecasts
+
+SELECT 
+    "p03d002_forecast13".*,"c03l01004_code", "c03b0n003_b01003001"
+    
+FROM casnd_geofile 
+JOIN "p03b00F_b01003_estimates" ON "c03b0n002_gvid" = "c02G0100S_gvid"
+JOIN "p03d002_forecast13" ON "c03d01002_censustract2010" = "c02G0100f_tract"
+JOIN cities_tracts ON cities_tracts."c02502002_gvid" = "c02G0100S_gvid"
+
+DOC: 
+
+Links the ACS geofile to ACS fields ( Total Population ) and places 
 
 
-ambry warehouse -d sa3ko7FFrX config url=104.131.33.197:81
+VIEW: 
+
+
+
+

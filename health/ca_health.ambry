@@ -40,14 +40,12 @@ SELECT * FROM
 JOIN t03j03002 AS facilities_blockgroups ON facilities.id = facilities_blockgroups.facilities_id
 JOIN p03a00a_blockgroups ON facilities_blockgroups.gvid = p03a00a_blockgroups.gvid
 
-
 VIEW: facilities_count_counties
 
 SELECT count(*) AS count, type, state, county, tract 
 FROM facilities_blockgroups 
 WHERE year = 2013 GROUP BY state, county, type;
  
-
 MVIEW: acs
 
 SELECT * FROM p02G001_geofile
@@ -61,5 +59,3 @@ WHERE state = 6 and sumlevel = 50;
 DOC:
 
 A Collection of several ACS tables. 
-
-
