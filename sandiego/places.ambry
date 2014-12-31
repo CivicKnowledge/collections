@@ -1,0 +1,59 @@
+TITLE: San Diego Places
+
+Examples of geodata for San Diego County cities and neighborhoods. 
+
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+DATABASE: spatialite:///places.db
+cache: places
+UID: mSyNYxhHcp
+
+PARTITIONS:
+
+sandiegodata.org-places-casnd-places-geo
+sandiegodata.org-places-casnd-places_blockgroups
+sandiegodata.org-places-casnd-places_tracts
+census.gov-tigerline-2012-blockgroups-ca-geo
+census.gov-tigerline-2012-tracts-ca-geo
+
+VIEW: places_blockgroups
+
+SELECT 
+    p03l001_places.c03l01002_type, 
+	p03l001_places.c03l01003_city, 
+	p03l001_places.c03l01004_code, 
+	p03l001_places.c03l01005_scode, 
+	p025007_blockgroups.c02501004_geometry
+FROM p03l002_places_blockgroups 
+	INNER JOIN p03l001_places ON p03l002_places_blockgroups.c03l02002_places_id = p03l001_places.c03l01001_id
+	 INNER JOIN p025007_blockgroups ON p025007_blockgroups.c02501002_gvid = p03l002_places_blockgroups.c03l02003_gvid
+     
+VIEW: places_tracts
+
+SELECT 
+    p03l001_places.c03l01002_type, 
+	p03l001_places.c03l01004_code, 
+	p03l001_places.c03l01005_scode, 
+	p03l001_places.c03l01006_name, 
+	p03l001_places.c03l01003_city, 
+	p02501N_tracts.c02502004_geometry
+FROM p03l003_places_tracts 
+	INNER JOIN p03l001_places ON p03l003_places_tracts.c03l03002_places_id = p03l001_places.c03l01001_id
+	INNER JOIN p02501N_tracts ON p02501N_tracts.c02502002_gvid = p03l003_places_tracts.c03l03003_gvid
+
+
+MVIEW: cities_blockgroups
+
+SELECT * FROM places_blockgroups WHERE c03l01002_type = 'city'
+
+MVIEW: communities_blockgroups
+
+SELECT * FROM places_blockgroups WHERE c03l01002_type = 'community'
+
+
+MVIEW: cities_tracts
+
+SELECT * FROM places_tracts WHERE c03l01002_type = 'city'
+
+MVIEW: communities_tracts
+
+SELECT * FROM places_tracts WHERE c03l01002_type = 'community'
