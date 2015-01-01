@@ -42,7 +42,7 @@ SELECT *
 FROM "p03l001_places"
 JOIN "p03l003_places_tracts" ON "c03l03002_places_id" = "c03l01001_id"
 JOIN "p02501N_tracts" ON "c02502002_gvid" = "c03l03003_gvid"
-WHERE c03l01002_type = 'city'
+WHERE "c03l01002_type" = 'city'
 
 DOC: 
 
