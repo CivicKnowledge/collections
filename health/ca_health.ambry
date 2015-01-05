@@ -2,12 +2,11 @@ TITLE: CA Health
 
 A variety of California health datasets.
 
-This is a second sentence that should not show up in manifest or database summaries. 
+ 
 
 UID: mYI43RkMEj
 AUTHOR: Eric Busboom <eric@sandiegodata.org>
-DATABASE: spatialite:///california_health.db
-CACHE: california_health
+
 
 PARTITIONS:
 
@@ -35,26 +34,26 @@ census.gov-acs-p5ye2012-geoid-b27001-estimates # Health Insurance Coverage Statu
 
 VIEW: facilities_blockgroups
 
-SELECT * FROM
-    t03j01002 as facilities
-JOIN t03j03002 AS facilities_blockgroups ON facilities.id = facilities_blockgroups.facilities_id
-JOIN p03a00a_blockgroups ON facilities_blockgroups.gvid = p03a00a_blockgroups.gvid
+SELECT * 
+FROM "p03j001002_facilities"
+JOIN "p03j003002_facilities_blockgroups" ON "c03j01001_id" = "c03j03002_facilities_id"
+JOIN "p03a00a_blockgroups" ON c03a05002_gvid = c03j03003_gvid
 
 VIEW: facilities_count_counties
 
-SELECT count(*) AS count, type, state, county, tract 
-FROM facilities_blockgroups 
-WHERE year = 2013 GROUP BY state, county, type;
+SELECT count(*) AS count, "c03j01003_type", "c03a0500h_state", "c03a0500i_county", "c03a0500j_tract" 
+FROM "p03j003_facilities_blockgroups"
+WHERE "c03a05003_year" = 2013 GROUP BY "c03a0500h_state", "c03a0500i_county", "c03j01003_type";
  
 MVIEW: acs
 
-SELECT * FROM p02G001_geofile
-JOIN p03b00F_b01003_estimates ON p02G001_geofile.gvid = p03b00F_b01003_estimates.gvid
-JOIN p03b0ua_b27001_estimates ON p02G001_geofile.gvid = p03b0ua_b27001_estimates.gvid
-JOIN p03b0cw_b17001_estimates ON p02G001_geofile.gvid = p03b0cw_b17001_estimates.gvid
-JOIN p03b0ka_b19113_estimates ON p02G001_geofile.gvid = p03b0ka_b19113_estimates.gvid
-JOIN p03b0gW_b19083_estimates ON p02G001_geofile.gvid = p03b0gW_b19083_estimates.gvid
-WHERE state = 6 and sumlevel = 50;
+SELECT * FROM "p02G001_geofile"
+JOIN "p03b00F_b01003_estimates" ON "c02G0100S_gvid" = "c03b0n002_gvid"
+JOIN "p03b0ua_b27001_estimates" ON "c02G0100S_gvid" = "c03beG002_gvid"
+JOIN "p03b0cw_b17001_estimates" ON "c02G0100S_gvid" = "c03b6S002_gvid"
+JOIN "p03b0ka_b19113_estimates" ON "c02G0100S_gvid" = "c03b9j002_gvid"
+JOIN "p03b0gW_b19083_estimates" ON "c02G0100S_gvid" = "c03b98002_gvid"
+WHERE c02G0100b_state = 6 and c02G01004_sumlevel = 50;
 
 DOC:
 
