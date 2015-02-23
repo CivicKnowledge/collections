@@ -15,12 +15,30 @@ ssa.gov-oasdi_trustee_report-vb1-intermediate
 sandiegodata.org-places-casnd-places-geo
 sandiegodata.org-places-casnd-places_tracts
 census.gov-acs-p5ye2012-geoid-b01003-estimates
+census.gov-acs-p5ye2012-geoid-b17001-estimates
+census.gov-acs-p5ye2012-geoid-b17020a-estimates
+census.gov-acs-p5ye2012-geoid-b17020b-estimates
+census.gov-acs-p5ye2012-geoid-b17020i-estimates
+census.gov-acs-p5ye2012-geoid-c17002-estimates
+census.gov-acs-p5ye2012-geoid-b19313-estimates
+census.gov-acs-p5ye2012-geoid-b22003-estimates
+
 census.gov-acs-geo-p5ye2012-geofile
 census.gov-tigerline-2012-tracts-ca-geo
 census.gov-acs-geo-p5ye2012-geofile
 
-INDEX: gvid_1 ON "p02G001004_geofile"" "c02G0100S_gvid""
-INDEX: gvid_2 ON "p03b00F001_b01003_estimates" "c03b0n002_gvid"
+INDEX: gvid_1 ON p02G001005_geofile c02G0100S_gvid
+INDEX: gvid_2 ON p03b00F001_b01003_estimates c03b0n002_gvid
+
+DOC:
+
+b17001 Poverty Status In The Past 12 Months By Sex By Age
+b17020a Poverty Status In The Past 12 Months By Age (White Alone)
+b17020b Poverty Status In The Past 12 Months By Age (Black Or African American Alone)
+b17020i Poverty Status In The Past 12 Months By Age (Hispanic Or Latino)
+c17002 Ratio Of Income To Poverty Level In The Past 12 Months
+b19313 Aggregate Income In The Past 12 Months (In 2012 Inflation-Adjusted Dollars)
+b22003 Receipt Of Food Stamps/Snap In The Past 12 Months By Poverty Status In The Past 12 Months For Households
 
 VIEW: casnd_geofile
 
@@ -60,3 +78,55 @@ JOIN cities_tracts ON cities_tracts."c02502002_gvid" = "c02G0100S_gvid"
 DOC: 
 
 Links the ACS geofile to ACS fields ( Total Population ) and places 
+
+INDEX: gvid_5 ON p03b0cw001_b17001_estimates c03b6S002_gvid
+INDEX: gvid_3 ON p03b07P001_c17002_estimates c03b76002_gvid
+INDEX: gvid_4 ON p03b0db001_b17020a_estimates c03b7t002_gvid
+INDEX: gvid_5 ON p03b0hX001_b17020i_estimates c03b7B002_gvid
+INDEX: gvid_6 ON p03b0hX001_b17020i_estimates c03b7B002_gvid
+
+VIEW: tract_poverty_all
+
+SELECT  
+    *
+FROM casnd_geofile 
+JOIN "p03b07P001_c17002_estimates" ON "c03b76002_gvid" = "c02G0100S_gvid"
+JOIN "p03b0db001_b17020a_estimates" ON "c03b7t002_gvid" = "c02G0100S_gvid"
+JOIN "p03b0hX001_b17020i_estimates" ON "c03b7B002_gvid" = "c02G0100S_gvid"
+JOIN "p03b0cw001_b17001_estimates" ON "c03b6S002_gvid" = "c02G0100S_gvid"
+
+DOC: 
+
+Links the ACS geofile to ACS fields ( Total Population ) and places. Shows all columns.  
+
+VIEW: tract_poverty
+
+SELECT  
+    c02G0100f_tract,
+    c03b7B002_gvid,
+    c03b76003_c17002001, 
+    c03b7600a_c17002008, 
+    c03b7t004_b17020a002,
+    c03b7t00c_b17020a010,
+    c03b7B003_b17020i001, 
+    c03b7B004_b17020i002, 
+    c03b7B00c_b17020i010
+FROM casnd_geofile 
+JOIN "p03b07P001_c17002_estimates" ON "c03b76002_gvid" = "c02G0100S_gvid"
+JOIN "p03b0db001_b17020a_estimates" ON "c03b7t002_gvid" = "c02G0100S_gvid"
+JOIN "p03b0hX001_b17020i_estimates" ON "c03b7B002_gvid" = "c02G0100S_gvid"
+JOIN "p03b0cw001_b17001_estimates" ON "c03b6S002_gvid" = "c02G0100S_gvid"
+
+DOC: 
+
+Links the ACS geofile to ACS fields ( Total Population ) and places. Shows a subset of columns.  
+
+VIEW: tract_income
+
+SELECT
+    *
+FROM casnd_geofile 
+JOIN "p03b00F_b01003_estimates" ON "c03b0n002_gvid" = "c02G0100S_gvid"
+JOIN "p03b0nR001_b19313_estimates" ON "c03ba0002_gvid" = "c02G0100S_gvid"
+JOIN "p03b07P001_c17002_estimates" ON "c03b76002_gvid" = "c02G0100S_gvid"
+JOIN "p03b0jE001_b22003_estimates" ON "c03baS002_gvid" = "c02G0100S_gvid"

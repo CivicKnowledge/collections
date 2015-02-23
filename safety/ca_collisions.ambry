@@ -1,0 +1,19 @@
+TITLE: California Traffic Collisions
+
+Collisions records from the Statewide Integrated Traffic Records System (SWITRS).
+
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+
+UID: mfKEHyl7E3
+
+PARTITIONS:
+
+chp.ca.gov-switrs-orig-collisions
+chp.ca.gov-switrs-orig-parties
+chp.ca.gov-switrs-orig-victims
+
+MVIEW: sd_collisions
+
+SELECT * FROM p00l001_collisions WHERE c00l01005_juris BETWEEN 3700 AND 3799
+
+

@@ -18,8 +18,7 @@ oshpd.ca.gov-hmsa-nurse-geo
 oshpd.ca.gov-hmsa-mental-geo
 oshpd.ca.gov-hmsa-dental-geo
 cdc.gov-brfss-brfss-ca
-oshpd.ca.gov-facilities-facilities
-oshpd.ca.gov-facilities-facilities_blockgroups
+
 cdc.gov-mrfei-mrfei
 civicknowledge.com-geography-census-tracts-2012
 civicknowledge.com-geography-census-blockgroups-2012
@@ -31,6 +30,12 @@ census.gov-acs-p5ye2012-geoid-b19083-estimates # gini index
 census.gov-acs-p5ye2012-geoid-b17001-estimates # Poverty Status In The Past 12 Months By Sex By Age
 census.gov-acs-p5ye2012-geoid-b19113-estimates #  Median Family Income In The Past 12 Months (In 2012 Inflation-Adjusted Dollars)
 census.gov-acs-p5ye2012-geoid-b27001-estimates # Health Insurance Coverage Status By Sex By Age
+
+civicknowledge.com-index-health_facilities-ca-facility_index
+civicknowledge.com-index-health_facilities-ca-facility_address
+cdph.ca.gov-facilities-facilities
+oshpd.ca.gov-facilities-facilities
+oshpd.ca.gov-facilities-facilities_blockgroups
 
 VIEW: facilities_blockgroups
 
@@ -58,3 +63,16 @@ WHERE c02G0100b_state = 6 and c02G01004_sumlevel = 50;
 DOC:
 
 A Collection of several ACS tables. 
+
+INDEX: facilities_1 ON p03A001001_facility_index c03A01002_oshpd_id
+INDEX: facilities_2 ON p03A001001_facility_index c03A01004_cdph_id
+INDEX: facilities_3 ON p03j001002_facilities c03j01005_oshpd_id 
+INDEX: facilities_4 ON p03s001001_facilities c03s01002_facid
+
+MVIEW: facilities 
+
+SELECT *
+FROM p03A001_facility_index 
+LEFT JOIN p03j001_facilities ON c03A01002_oshpd_id = c03j01005_oshpd_id 
+LEFT JOIN p03s001_facilities ON c03A01004_cdph_id = c03s01002_facid
+
