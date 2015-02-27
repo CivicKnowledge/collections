@@ -1,0 +1,16 @@
+TITLE: Data Contest 2015 Education Files
+
+
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+UID: mt6kUmXfyu
+
+PARTITIONS:
+
+cde.ca.gov-api-combined-api_base
+cde.ca.gov-schools-schools
+cde.ca.gov-schools-locations
+cde.ca.gov-enrollment-1993e-enroll09
+cde.ca.gov-celdt-celdt-2013
+cde.ca.gov-star-orig-star-2012
+livegoode.com-monharc-direferrals
+
