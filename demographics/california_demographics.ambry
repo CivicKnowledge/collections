@@ -4,28 +4,41 @@ Demographics, mostly from the Census, restricted to California
 
 
 AUTHOR: Eric Busboom <eric@sandiegodata.org>
-DATABASE: sqlite:///california_demo.db
+GEO: true
 cache: california_demo
 
 UID: mdLHIryTBa
 
 PARTITIONS:
 
-oshpd.ca.gov-zcta_boundaries-zcta-geo
-oshpd.ca.gov-zip_boundaries-zips-geo
-census.gov-tigerline-2012-tracts-ca-geo
-census.gov-acs-geo-p5ye2012-geofile
-census.gov-acs-p5ye2012-geoid-b25026-estimates
-census.gov-acs-p5ye2012-geoid-b01003-estimates
-census.gov-acs-p5ye2012-geoid-b17001-estimates
-census.gov-acs-p5ye2012-geoid-b19083-estimates
+census.gov-index-counties
+census.gov-index-blockgroups
+census.gov-acs-geo-p5ye2013-geofile
+census.gov-tigerline-2012-blockgroups-ca-geo
+census.gov-tigerline-2012-counties-us-geo
+census.gov-acs-p5ye2013-b01003 # b01003	Total Population
+census.gov-acs-p5ye2013-b22003 # b22003 Receipt Of Food Stamps/Snap In The Past 12 Months By Poverty Status In The Past 12 Months For Households
+census.gov-acs-p5ye2013-b19001 # b19001	Household Income In The Past 12 Months (In 2013 Inflation-Adjusted Dollars)
+census.gov-acs-p5ye2013-b19025 # b19025	Aggregate Household Income In The Past 12 Months
+census.gov-acs-p5ye2013-b19057 # b19057	Public Assistance Income In The Past 12 Months For Households
+census.gov-acs-p5ye2013-b01001 # b01001	Sex By Age
+census.gov-acs-p5ye2013-b08119 # b08119	Means Of Transportation To Work By Workers' Earnings In The Past 12 Months 
+census.gov-acs-p5ye2013-b08601 # b08601 Means Of Transportation To Work For Workplace Geography
+census.gov-acs-p5ye2013-b08136 # b08136	Aggregate Travel Time To Work (In Minutes) Of Workers By Means Of Transportation To Work
 
-VIEW: acs_2008_2012
+VIEW: county_index
 
-SELECT *
-FROM p02G001004_geofile 
-	 INNER JOIN p03b00F001_b01003_estimates  ON p03b00F001_b01003_estimates.c03b0n002_gvid = p02G001004_geofile.c02G0100S_gvid
-	 INNER JOIN p03b0cw_b17001_estimates ON p02G001004_geofile.c02G0100S_gvid = p03b0cw_b17001_estimates.c03b6S002_gvid
-	 INNER JOIN p03b0gW_b19083_estimates ON p02G001004_geofile.c02G0100S_gvid = p03b0gW_b19083_estimates.c03b98002_gvid
-	 INNER JOIN p03b0iC001_b25026_estimates ON p03b0iC001_b25026_estimates.c03bcV002_gvid = p02G001004_geofile.c02G0100S_gvid
-WHERE p02G001004_geofile.c02G0100b_state = 6 AND p02G001004_geofile.c02G0100c_county = 73;
+SELECT * FROM p03x002_counties WHERE c03x04004_state = 6;
+
+DOC: 
+
+This is an index file that can be used to link census tables together, returning only the counties. 
+
+VIEW: blockgroup_index
+
+SELECT * FROM p03x007_blockgroups WHERE c03x09004_state = 6 and c03x09005_county = 73;
+
+DOC: 
+
+An index of census block groups, restricted to San Diego County
+
