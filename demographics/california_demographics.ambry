@@ -4,7 +4,6 @@ Demographics, mostly from the Census, restricted to California
 
 
 AUTHOR: Eric Busboom <eric@sandiegodata.org>
-GEO: true
 cache: california_demo
 
 UID: mdLHIryTBa
