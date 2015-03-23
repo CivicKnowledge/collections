@@ -1,0 +1,11 @@
+TITLE: California Census Tract Health
+
+Health datasets indexed to California census tracts
+
+UID: m5ht7iJF2m
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+
+PARTITIONS:
+
+cdc.gov-mrfei-mrfei
+

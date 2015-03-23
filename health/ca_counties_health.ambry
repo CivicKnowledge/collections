@@ -18,11 +18,27 @@ census.gov-acs-p5ye2013-b13002 # b13002	Women 15 To 50 Years Who Had A Birth In 
 oshpd.ca.gov-pdi-pdi_summary # Pediatric quality indicators. 
 oshpd.ca.gov-pqi-pqi #Prevention Quality Indicators
 
+cdph.ca.gov-immunization-schools-kinder
+cdph.ca.gov-immunization-schools-g7
+
+cde.ca.gov-schools-dist_index
+cde.ca.gov-schools-school_index
+civicknowledge.com-time-years
+
+VIEW: years
+
+SELECT * FROM p03O001_years WHERE c03O01002_year between  2005 and 2015
+
+DOC: Query to generate the years from 2005 on, used to add years to other tables
+
+
 VIEW: county_index
 
-SELECT * FROM p03x002_counties WHERE c03x04004_state = 6;
+SELECT * 
+FROM p03x002_counties 
+WHERE c03x04004_state = 6;
 
-VIEW: main
+VIEW: counties
 
 SELECT *
 FROM county_index
@@ -33,4 +49,16 @@ JOIN p03w0e1_b27010 ON c03wfb005_gvid = c03x04003_gvid
 JOIN p03F001_lauscounties ON c03F01004_gvid = c03x04003_gvid AND c03F01005_date = '2014-12-01'
 JOIN p03C001_pdi_summary ON c03C0100g_gvid = c03x04003_gvid and c03C01002_year = 2011
 JOIN p03r001_pqi ON c03r01018_gvid = c03x04003_gvid AND c03r01004_year = 2013
+
+VIEW: school_index
+
+SELECT * 
+FROM years, p03L002_school_index 
+ORDER BY c03L03006_cdscode, c03O01002_year
+
+VIEW: schools
+
+SELECT * FROM school_index
+LEFT JOIN p03N001_g7 ON c03N01004_school_code = c03L03005_cds_school  AND c03N01003_year = c03O01002_year
+LEFT JOIN p03N003_kinder ON c03N03004_school_code = c03L03005_cds_school AND c03N03003_year = c03O01002_year;
 

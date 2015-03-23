@@ -41,3 +41,22 @@ DOC:
 
 An index of census block groups, restricted to San Diego County
 
+
+MVIEW: acs_blockgroups
+
+SELECT 
+    *,
+	CAST(ST_Area(Transform(c02501004_geometry, 3499)) as REAL) as area
+FROM blockgroup_index
+INNER JOIN p025007008_blockgroups ON c02501002_gvid = c03x09003_gvid
+INNER JOIN p03w03j_b01003 ON c03w0n005_gvid  = c03x09003_gvid
+INNER JOIN p03w00l_b01001 ON c03w03005_gvid  = c03x09003_gvid
+INNER JOIN p03w00y_b08119 ON c03w3u005_gvid  = c03x09003_gvid
+INNER JOIN p03w01X_b08136 ON c03w3G005_gvid  = c03x09003_gvid
+INNER JOIN p03w02q_b08601 ON c03w4f005_gvid  = c03x09003_gvid
+INNER JOIN p03w05C_b19001 ON c03w8i005_gvid  = c03x09003_gvid
+INNER JOIN p03w09W_b19025 ON c03w8D005_gvid  = c03x09003_gvid
+INNER JOIN p03w07Z_b19057 ON c03w95005_gvid  = c03x09003_gvid
+
+
+

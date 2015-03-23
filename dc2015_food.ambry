@@ -1,9 +1,7 @@
 TITLE: Data Contest 2015 Food Insecurity Files
 
-Extracted and cleaned files for the 2015 SDSU Data Contest
 
 AUTHOR: Eric Busboom <eric@sandiegodata.org>
-GEO: TRUE
 UID: m81lyjvWSg
 
 PARTITIONS:
@@ -11,5 +9,5 @@ PARTITIONS:
 sdfsa.org-agencies-locations
 sdfsa.org-agencies-agency_list
 sdfsa.org-agencies-sdfb_partners
-clarinova.com-crime-incidents-casnd-linked-crimes-geo
+clarinova.com-crime-incidents-casnd-linked-crimes
 
