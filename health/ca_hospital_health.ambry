@@ -1,0 +1,10 @@
+TITLE: California Hospital-level Health
+
+Health datasets indexed to OSHPD Health Facilities
+
+
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+
+PARTITIONS:
+
+oshpd.ca.gov-msdrg-county-msdrg_hospital

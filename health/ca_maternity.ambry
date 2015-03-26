@@ -1,0 +1,13 @@
+Maternity CareHospital-level Health
+
+Health datasets realted to birth and maternity care, to support an example LiveStories story. 
+
+UID: metY55qPUJ
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+
+PARTITIONS:
+
+oshpd.ca.gov-msdrg-county-msdrg_county
+oshpd.ca.gov-msdrg-county-msdrg_hospital
+cdph.ca.gov-birth_profiles-birth_profile
+
