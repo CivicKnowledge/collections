@@ -14,3 +14,15 @@ cdph.ca.gov-birth_profiles-birth_profile_county
 huduser.org-zipcross-zip_county-201412
 huduser.org-zipcross-zip_cd-201412
 census.gov-index-counties
+
+VIEW: birth_county_joined
+
+SELECT *, replace(c03x04006_name, ' County, California', '') AS short_county
+FROM p03x002_counties
+LEFT JOIN  p03Q003_birth_profile_county ON c03x04003_gvid = c03Q02002_county_gvid
+WHERE c03x04004_state = 6 ;
+
+DOC: 
+
+This table joins the county birth profiles to the county names. Use the _short_county_ column for a county name that excludes the ' County, California' suffix form of the Census county names. 
+
