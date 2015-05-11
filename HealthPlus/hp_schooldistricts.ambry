@@ -1,0 +1,27 @@
+HealthPlus Datasets, Indexed to Counties
+
+UID: mKyB58qxPt
+AUTHOR: Eric Busboom <eric@civicknowledge.com>
+
+PARTITIONS:
+
+cde.ca.gov-schools-dist_index
+cde.ca.gov-schools-school_index
+
+cde.ca.gov-enrollment-1993e-enroll09
+
+cde.ca.gov-schools-schools
+
+cdph.ca.gov-immunization-schools-g12
+cdph.ca.gov-immunization-schools-kinder
+cdph.ca.gov-immunization-schools-child_care
+cdph.ca.gov-immunization-schools-g7
+
+cde.ca.gov-api-combined-api_base
+cde.ca.gov-star-orig-star-2012
+cde.ca.gov-star-orig-star-2011
+cde.ca.gov-star-orig-star-2010
+
+cde.ca.gov-celdt-celdt-2013
+cde.ca.gov-celdt-celdt-2012
+cde.ca.gov-celdt-celdt-2011

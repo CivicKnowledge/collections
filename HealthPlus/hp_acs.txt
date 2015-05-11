@@ -1,0 +1,41 @@
+TITLE: American Community Survey Tables
+
+A collection of linked ACS tables, indexed to counties in California
+
+AUTHOR: Eric Busboom <eric@civicknowledge.com>
+UID: m7FE7MMElO
+
+PARTITIONS:
+
+census.gov-index-counties
+
+VIEW: ca_counties
+
+SELECT * FROM p03x002003_counties WHERE c03x04004_state = 6;
+
+DOC: 
+
+The ca_counties is an index of counties in Canifornia. 
+
+PARTITIONS: --table acs_counties  --index ca_counties
+
+census.gov-acs-p5ye2013-c17002 # Ratio Of Income To Poverty Level In The Past 12 Months
+census.gov-acs-p5ye2013-b17020 # Poverty Status In The Past 12 Months By Age
+census.gov-acs-p5ye2013-b06011 # Median Income In The Past 12 Months (In 2013 Inflation-Adjusted Dollars) By Place Of Birth In The United States
+census.gov-acs-p5ye2013-b15003 # Educational Attainment For The Population 25 Years And Over
+census.gov-acs-p5ye2013-b05001 # Nativity And Citizenship Status In The United States
+census.gov-acs-p5ye2013-b18101 # Sex By Age By Disability Status
+census.gov-acs-p5ye2013-b02001 # Race
+census.gov-acs-p5ye2013-b03002 # Hispanic Or Latino Origin By Race
+census.gov-acs-p5ye2013-b09019 # Household Type (Including Living Alone) By Relationship
+census.gov-acs-p5ye2013-b25014 # Tenure By Occupants Per Room
+census.gov-acs-p5ye2013-b21001 # Sex By Age By Veteran Status For The Civilian Population 18 Years And Over
+census.gov-acs-p5ye2013-b16002 # Household Language By Household Limited English Speaking Status
+census.gov-acs-p5ye2013-b27001 # Health Insurance Coverage Status By Sex By Age
+census.gov-acs-p5ye2013-b19058 # Public Assistance Income Or Food Stamps/Snap In The Past 12 Months For Households
+
+DOC:
+
+The acs_counties links several hundred columns of ACS data to counties in California. 
+
+

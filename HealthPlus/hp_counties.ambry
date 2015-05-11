@@ -1,0 +1,39 @@
+All HealthPlus Datasets
+
+
+AUTHOR: Eric Busboom <eric@civicknowledge.com>
+UID: mtZ6dkOqQq
+
+PARTITIONS:
+
+census.gov-index-counties-p25ye2015-ca
+
+DOC:
+
+cdph.ca.gov-immunization-schools-g12
+cdph.ca.gov-immunization-schools-kinder
+cdph.ca.gov-immunization-schools-child_care
+cdph.ca.gov-immunization-schools-g7
+
+oshpd.ca.gov-msdrg-county-msdrg_county
+
+oshpd.ca.gov-iqi-mortality-indicators
+oshpd.ca.gov-iqi-mortality-conditions
+oshpd.ca.gov-iqi-mortality-procedures
+
+oshpd.ca.gov-pqi-pqi
+
+oshpd.ca.gov-pdi-pdi_summary
+
+oshpd.ca.gov-msdgr-top25-msdrgs
+
+oshpd.ca.gov-hmsa-dental-geo
+oshpd.ca.gov-hmsa-mental-geo
+oshpd.ca.gov-hmsa-nurse-geo
+oshpd.ca.gov-hmsa-primarycare-geo
+oshpd.ca.gov-hmsa-primarypro-geo
+
+cdc.gov-brfss-county-brfss_county
+
+
+oshpd.ca.gov-utilization-hosp_util

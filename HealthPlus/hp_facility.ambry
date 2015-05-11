@@ -1,0 +1,9 @@
+HealthPlus Datasets, Indexed to Health Care Facilities
+
+UID: m1VkPukDoI
+AUTHOR: Eric Busboom <eric@civicknowledge.com>
+
+PARTITIONS:
+
+oshpd.ca.gov-msdrg-county-msdrg_hospital
+cdph.ca.gov-facilities-facilities
