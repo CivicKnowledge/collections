@@ -8,12 +8,10 @@ AUTHOR: Eric Busboom <eric@sandiegodata.org>
 PARTITIONS:
 
 census.gov-index-counties
+civicknowledge.com-time-years
+
 bls.gov-laus-decomp-lauscounties
 cdc.gov-brfss-county-brfss_county
-census.gov-acs-p5ye2013-b27010 # b27010 Types Of Health Insurance Coverage By Age
-census.gov-acs-p5ye2013-b19101 # b19101 Family Income In The Past 12 Months (In 2013 Inflation-Adjusted Dollars)
-census.gov-acs-p5ye2013-b01003 # b01003 Total Population
-census.gov-acs-p5ye2013-b13002 # b13002	Women 15 To 50 Years Who Had A Birth In The Past 12 Months By Marital Status And Age
 
 oshpd.ca.gov-pdi-pdi_summary # Pediatric quality indicators. 
 oshpd.ca.gov-pqi-pqi #Prevention Quality Indicators
@@ -23,8 +21,18 @@ cdph.ca.gov-immunization-schools-g7
 
 cde.ca.gov-schools-dist_index
 cde.ca.gov-schools-school_index
-civicknowledge.com-time-years
+
 oshpd.ca.gov-msdrg-county-msdrg_county
+
+cdph.ca.gov-birth_profiles-birth_profile_county
+huduser.org-zipcross-zip_county-201412
+
+census.gov-acs-p5ye2013-b27010 # b27010 Types Of Health Insurance Coverage By Age
+census.gov-acs-p5ye2013-b19101 # b19101 Family Income In The Past 12 Months (In 2013 Inflation-Adjusted Dollars)
+census.gov-acs-p5ye2013-b01003 # b01003 Total Population
+census.gov-acs-p5ye2013-b13002 # b13002	Women 15 To 50 Years Who Had A Birth In The Past 12 Months By Marital Status And Age
+
+
 
 VIEW: years
 
