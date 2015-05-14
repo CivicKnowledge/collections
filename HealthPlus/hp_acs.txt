@@ -11,7 +11,7 @@ census.gov-index-counties
 
 VIEW: ca_counties
 
-SELECT * FROM p03x002003_counties WHERE c03x04004_state = 6;
+SELECT * FROM p03x002005_counties WHERE c03x04004_state = 6;
 
 DOC: 
 
@@ -38,13 +38,5 @@ census.gov-acs-p5ye2013-b19058 # Public Assistance Income Or Food Stamps/Snap In
 DOC:
 
 The acs_counties links several hundred columns of ACS data to counties in California. 
-
-MVIEW: acs_counties_m
-
-SELECT * FROM acs_counties
-
-DOC:
-
-A materialized version of __acs_counties__, which downloads faster because the join is pre-computed. 
 
 
