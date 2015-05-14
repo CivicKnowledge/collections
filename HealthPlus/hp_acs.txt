@@ -1,6 +1,6 @@
 TITLE: American Community Survey Tables
 
-A collection of linked ACS tables, indexed to counties in California
+A collection of linked ACS tables, indexed to counties in California.
 
 AUTHOR: Eric Busboom <eric@civicknowledge.com>
 UID: m7FE7MMElO
@@ -17,6 +17,7 @@ DOC:
 
 The ca_counties is an index of counties in Canifornia. 
 
+# 15 Datasets
 PARTITIONS: --table acs_counties  --index ca_counties
 
 census.gov-acs-p5ye2013-c17002 # Ratio Of Income To Poverty Level In The Past 12 Months
@@ -37,5 +38,13 @@ census.gov-acs-p5ye2013-b19058 # Public Assistance Income Or Food Stamps/Snap In
 DOC:
 
 The acs_counties links several hundred columns of ACS data to counties in California. 
+
+MVIEW: acs_counties_m
+
+SELECT * FROM acs_counties
+
+DOC:
+
+A materialized version of __acs_counties__, which downloads faster because the join is pre-computed. 
 
 
