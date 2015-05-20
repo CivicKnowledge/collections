@@ -14,13 +14,24 @@ oshpd.ca.gov-facilities-index-facilities_index
 PARTITIONS: 
 
 oshpd.ca.gov-msdrg-county-msdrg_hospital
-oshpd.ca.gov-patient_discharges-hospital-pdd_summary_msdrg
-oshpd.ca.gov-patient_discharges-hospital-pdd_summary_mdc
-oshpd.ca.gov-patient_discharges-hospital-pdd_summary_diag_p
-oshpd.ca.gov-patient_discharges-hospital-pdd_summary_poa_p
+
 oshpd.ca.gov-utilization-hosp_util
 oshpd.ca.gov-iqi-mortality-conditions
 oshpd.ca.gov-iqi-mortality-indicators
 oshpd.ca.gov-iqi-mortality-procedures
 
+PARTITIONS: -t pdd_summaries --index oshpd.ca.gov-facilities-index-facilities_index
 
+oshpd.ca.gov-patient_discharges-hospital-pdd_summary_msdrg
+oshpd.ca.gov-patient_discharges-hospital-pdd_summary_mdc
+oshpd.ca.gov-patient_discharges-hospital-pdd_summary_diag_p
+oshpd.ca.gov-patient_discharges-hospital-pdd_summary_poa_p
+
+
+PARTITIONS: -t mdc_summaries --index oshpd.ca.gov-facilities-index-facilities_index
+oshpd.ca.gov-patient_discharges-hospital-pdd_mdc_14
+oshpd.ca.gov-patient_discharges-hospital-pdd_mdc_15
+
+DOC: 
+
+Summaries of counties of MS-DRGs, grouped by MDCs by hospital by year. 
