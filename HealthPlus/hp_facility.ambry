@@ -9,34 +9,59 @@ AUTHOR: Eric Busboom <eric@civicknowledge.com>
 PARTITIONS: 
 
 oshpd.ca.gov-facilities-index-facilities_index
-oshpd.ca.gov-facilities-index-facilities_index_year-2010e2014
+oshpd.ca.gov-facilities-index-facilities_index-2010e2014
 oshpd.ca.gov-facilities-index-facilities
-
-# 9 Partitions
-PARTITIONS: 
-
 oshpd.ca.gov-msdrg-county-msdrg_hospital
-
 oshpd.ca.gov-utilization-hosp_util
+
+
+
+PARTITIONS: -t ahrq_qi --index oshpd.ca.gov-facilities-index-facilities_index-2010e2014 --where 'c03p02004_oshpd_id IS NOT NULL OR c03p01004_oshpd_id IS NOT NULL OR c03p03004_oshpd_id IS NOT NULL'
+
 oshpd.ca.gov-iqi-mortality-conditions
 oshpd.ca.gov-iqi-mortality-indicators
 oshpd.ca.gov-iqi-mortality-procedures
 
-PARTITIONS: -t pdd_summaries --index oshpd.ca.gov-facilities-index-facilities_index_year-2010e2014
+DOC: 
+
+AHRQ inpatient quality indicators, as compiled by OSHPD.
+
+PARTITIONS: -t pdd_summaries --index oshpd.ca.gov-facilities-index-facilities_index-2010e2014
 
 oshpd.ca.gov-patient_discharges-hospital-pdd_summary_msdrg
-
-PARTITIONS:
-
 oshpd.ca.gov-patient_discharges-hospital-pdd_summary_mdc
 oshpd.ca.gov-patient_discharges-hospital-pdd_summary_diag_p
 oshpd.ca.gov-patient_discharges-hospital-pdd_summary_poa_p
 
+DOC: 
 
-PARTITIONS: -t mdc_summaries --index oshpd.ca.gov-facilities-index-facilities_index_year-2010e2014 --where 'c03W0k003_year is not NULL'
+Counts of discharges, by hospital by year, for a selection of categorical vairables. 
+
+
+PARTITIONS: -t utilization --index oshpd.ca.gov-facilities-index-facilities_index-2010e2014 --where "c03D01001_id IS NOT NULL"
+
+oshpd.ca.gov-utilization-hosp_util
+
+DOC: 
+
+Hospital utilization. 
+
+PARTITIONS: -t mdc_summaries --index oshpd.ca.gov-facilities-index-facilities_index-2010e2014 --where 'c03W0k003_year is not NULL'
 oshpd.ca.gov-patient_discharges-hospital-pdd_mdc_14
 oshpd.ca.gov-patient_discharges-hospital-pdd_mdc_15
 
 DOC: 
 
-Summaries of counties of MS-DRG countys, for all of the MSDRGs in MDCs 14 (Pregnancy, Childbirth And Puerperium) and 15 (Newborn And Other Neonates, Perinatal Period) . 
+Summaries of counties of MS-DRG countyies, for all of the MSDRGs in MDCs 14 (Pregnancy, Childbirth And Puerperium) and 15 (Newborn And Other Neonates, Perinatal Period) . 
+
+
+PARTITIONS: -t quality_metrics --index oshpd.ca.gov-facilities-index-facilities_index-2010e2014 --where "c04305002_oshpd_id IS NOT NULL"
+
+calqualitycare.org-performance-experience
+calqualitycare.org-performance-motherbaby
+
+DOC: 
+
+Hospital ratings from CalQualityCare.org. This data was prepared for thse in the website, and does not come with detailed documentation. 
+
+
