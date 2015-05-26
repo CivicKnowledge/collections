@@ -57,6 +57,7 @@ Summaries of counties of MS-DRG countyies, for all of the MSDRGs in MDCs 14 (Pre
 
 PARTITIONS: -t quality_metrics --index oshpd.ca.gov-facilities-index-facilities_index-2010e2014 --where "c04305002_oshpd_id IS NOT NULL"
 
+oshpd.ca.gov-facilities-index-facilities
 calqualitycare.org-performance-experience
 calqualitycare.org-performance-motherbaby
 
