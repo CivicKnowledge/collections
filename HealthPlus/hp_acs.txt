@@ -40,3 +40,128 @@ DOC:
 The acs_counties links several hundred columns of ACS data to counties in California. 
 
 
+PARTITIONS: --table acs_poverty_ratio  --index ca_counties
+
+census.gov-acs-p5ye2013-c17002
+
+DOC:
+
+Ratio Of Income To Poverty Level In The Past 12 Months
+        
+
+PARTITIONS: --table acs_poverty_status  --index ca_counties
+
+census.gov-acs-p5ye2013-b17020
+
+DOC:
+
+Poverty Status In The Past 12 Months By Age
+        
+
+PARTITIONS: --table acs_incomme_by_birth  --index ca_counties
+
+census.gov-acs-p5ye2013-b06011
+
+DOC:
+
+Median Income In The Past 12 Months (In 2013 Inflation-Adjusted Dollars) By Place Of Birth In The United States
+        
+
+PARTITIONS: --table acs_education  --index ca_counties
+
+census.gov-acs-p5ye2013-b15003
+
+DOC:
+
+Educational Attainment For The Population 25 Years And Over
+        
+
+PARTITIONS: --table acs_nativity  --index ca_counties
+
+census.gov-acs-p5ye2013-b05001
+
+DOC:
+
+Nativity And Citizenship Status In The United States
+        
+
+PARTITIONS: --table acs_sex_age_disability  --index ca_counties
+
+census.gov-acs-p5ye2013-b18101
+
+DOC:
+
+Sex By Age By Disability Status
+        
+
+PARTITIONS: --table acs_race  --index ca_counties
+
+census.gov-acs-p5ye2013-b02001
+
+DOC:
+
+Race
+        
+
+PARTITIONS: --table acs_hispanic  --index ca_counties
+
+census.gov-acs-p5ye2013-b03002
+
+DOC:
+
+Hispanic Or Latino Origin By Race
+        
+
+PARTITIONS: --table acs_household_type  --index ca_counties
+
+census.gov-acs-p5ye2013-b09019
+
+DOC:
+
+Household Type (Including Living Alone) By Relationship
+        
+
+PARTITIONS: --table acs_tenure_by_occupants  --index ca_counties
+
+census.gov-acs-p5ye2013-b25014
+
+DOC:
+
+Tenure By Occupants Per Room
+        
+
+PARTITIONS: --table acs_sex_age_vet  --index ca_counties
+
+census.gov-acs-p5ye2013-b21001
+
+DOC:
+
+Sex By Age By Veteran Status For The Civilian Population 18 Years And Over
+        
+
+PARTITIONS: --table acs_language  --index ca_counties
+
+census.gov-acs-p5ye2013-b16002
+
+DOC:
+
+Household Language By Household Limited English Speaking Status
+        
+
+PARTITIONS: --table acs_insurance  --index ca_counties
+
+census.gov-acs-p5ye2013-b27001
+
+DOC:
+
+Health Insurance Coverage Status By Sex By Age
+        
+
+PARTITIONS: --table acs_snap  --index ca_counties
+
+census.gov-acs-p5ye2013-b19058
+
+DOC:
+
+Public Assistance Income Or Food Stamps/Snap In The Past 12 Months For Households
+        
