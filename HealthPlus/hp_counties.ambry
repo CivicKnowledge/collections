@@ -28,11 +28,14 @@ oshpd.ca.gov-iqi-mortality-procedures
 oshpd.ca.gov-msdrg-county-msdrg_county
 oshpd.ca.gov-msdgr-top25-msdrgs
 cdc.gov-brfss-county-brfss_county
+civicknowledge.com-poverty-poverty_asre
 
-DOC:
+VIEW: poverty_asre
 
-cdph.ca.gov-immunization-schools-g12
-cdph.ca.gov-immunization-schools-kinder
-cdph.ca.gov-immunization-schools-child_care
-cdph.ca.gov-immunization-schools-g7
+SELECT * FROM p045002_poverty_asre
+JOIN ca_counties ON ca_counties.c03x04003_gvid = p045002_poverty_asre.c04504002_county_gvid
+WHERE c03x04004_state = 6
+
+
+
 
