@@ -28,14 +28,18 @@ oshpd.ca.gov-iqi-mortality-procedures
 oshpd.ca.gov-msdrg-county-msdrg_county
 oshpd.ca.gov-msdgr-top25-msdrgs
 cdc.gov-brfss-county-brfss_county
-civicknowledge.com-poverty-poverty_asre
+civicknowledge.com-poverty-poverty_age_sex_raceeth
+civicknowledge.com-poverty-poverty_age
 
-VIEW: poverty_asre
+VIEW: poverty_age_sex_raceeth
 
-SELECT * FROM p045002_poverty_asre
-JOIN ca_counties ON ca_counties.c03x04003_gvid = p045002_poverty_asre.c04504002_county_gvid
+SELECT * FROM p045003_poverty_age_sex_raceeth
+JOIN ca_counties ON ca_counties.c03x04003_gvid = p045003_poverty_age_sex_raceeth.c04504002_county_gvid
 WHERE c03x04004_state = 6
 
 
+VIEW: poverty_age
 
-
+SELECT * FROM p045004_poverty_age
+JOIN ca_counties ON ca_counties.c03x04003_gvid = p045004_poverty_age.c04502002_county_gvid
+WHERE c03x04004_state = 6
