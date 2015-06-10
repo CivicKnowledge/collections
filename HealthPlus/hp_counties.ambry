@@ -15,7 +15,7 @@ SELECT * FROM p03x002_counties WHERE c03x04004_state = 6;
 
 DOC: 
 
-The ca_counties is an index of counties in California. 
+The ca_counties is an index of counties in Cal ifornia. 
 
 # 9 Partitions
 PARTITIONS: 

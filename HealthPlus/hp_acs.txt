@@ -21,6 +21,7 @@ The ca_counties is an index of counties in Canifornia.
 PARTITIONS: --table acs_counties  --index ca_counties
 
 census.gov-acs-p5ye2013-c17002 # Ratio Of Income To Poverty Level In The Past 12 Months
+census.gov-acs-p5ye2013-b17026 # Ratio Of Income To Poverty Level Of Families In The Past 12 Months
 census.gov-acs-p5ye2013-b17020 # Poverty Status In The Past 12 Months By Age
 census.gov-acs-p5ye2013-b17001 # Poverty Status In The Past 12 Months By Sex By Age
 census.gov-acs-p5ye2013-b06011 # Median Income In The Past 12 Months (In 2013 Inflation-Adjusted Dollars) By Place Of Birth In The United States
