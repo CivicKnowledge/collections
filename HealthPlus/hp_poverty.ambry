@@ -67,6 +67,11 @@ c0450200d_below_poverty_cv	AS	poverty_cv,
 c0450200i_below_poverty_pct_cv	AS poverty_pct_cv
 FROM poverty_age_full;
 
+DOC: 
+
+Poverty rates and counts for California counties, by age group. 
+
+
 VIEW: poverty_raceeth
 
 SELECT 
@@ -81,6 +86,11 @@ c0450200d_below_poverty_cv	AS	poverty_cv,
 c0450200i_below_poverty_pct_cv	AS poverty_pct_cv
 FROM poverty_raceeth_full
 
+DOC: 
+
+Poverty rates and counts for California counties, by race / ethnicity. 
+
+
 VIEW: poverty
 
 SELECT
@@ -94,3 +104,7 @@ c0450200d_below_poverty_cv	AS	poverty_cv,
 c0450200i_below_poverty_pct_cv	AS poverty_pct_cv
 FROM poverty_full;
 
+
+DOC: 
+
+Poverty rates and counts for California counties. 
