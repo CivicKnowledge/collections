@@ -17,68 +17,80 @@ DOC:
 The ca_counties is an index of counties in Canifornia. 
 
 PARTITIONS: 
-
+census.gov-acs-p5ye2013-b17001
 civicknowledge.com-poverty-poverty_age_sex_raceeth
 civicknowledge.com-poverty-poverty_age_raceeth
 
 
-VIEW: poverty_age
+VIEW: b17001
+
+SELECT * FROM p03w05c_b17001
+JOIN ca_counties ON ca_counties.c03x04003_gvid = c03w74005_gvid
+WHERE c03x04004_state = 6 
+
+
+VIEW: poverty_age_full
 
 SELECT * FROM p045004_poverty_age_raceeth
-JOIN ca_counties ON ca_counties.c03x04003_gvid = p045004_poverty_age_raceeth.c04505002_county_gvid
-WHERE c03x04004_state = 6 and c04505009_race_eth = 'all'
+JOIN ca_counties ON ca_counties.c03x04003_gvid = p045004_poverty_age_raceeth.c04502002_county_gvid
+WHERE c03x04004_state = 6 and c04502008_race_eth = 'all'
 
-VIEW: poverty_age_renamed
+
+VIEW: poverty_raceeth_full
+
+SELECT * FROM p045004_poverty_age_raceeth
+JOIN ca_counties ON ca_counties.c03x04003_gvid = p045004_poverty_age_raceeth.c04502002_county_gvid
+WHERE c03x04004_state = 6 and c04502008_race_eth != 'all' and c04502004_age_group = '0'
+
+
+
+
+
+VIEW: poverty_full
+
+SELECT * FROM p045004_poverty_age_raceeth
+JOIN ca_counties ON ca_counties.c03x04003_gvid = p045004_poverty_age_raceeth.c04502002_county_gvid
+WHERE c03x04004_state = 6 and c04502008_race_eth = 'all' and c04502004_age_group = '0'
+
+
+VIEW: poverty_age
 
 SELECT 
-c04505003_year	AS	year,
+c04502003_year	AS	year,
 c03x04006_name	AS	county_name,
-c04505004_age_group	AS	age_group,
-c0450500a_poverty_count	AS	number_in_poverty,
-c0450500b_poverty_count_m	AS	number_in_poverty_moe,
-c0450500c_poverty_pct	AS	percent_in_poverty,
-c0450500d_poverty_pct_m	AS	percent_in_poverty_moe,
-c0450500e_poverty_moe_ratio	AS	poverty_moe_ratio
-FROM poverty_age;
-
+c04502004_age_group	AS	age_group,
+c04502009_below_poverty_count	AS	number_in_poverty,
+c0450200a_below_poverty_count_m	AS	number_in_poverty_moe,
+c0450200b_below_poverty_pct	AS	percent_in_poverty,
+c0450200c_below_poverty_pct_m	AS	percent_in_poverty_moe,
+c0450200d_below_poverty_cv	AS	poverty_cv,
+c0450200i_below_poverty_pct_cv	AS poverty_pct_cv
+FROM poverty_age_full;
 
 VIEW: poverty_raceeth
 
-SELECT * FROM p045004_poverty_age_raceeth
-JOIN ca_counties ON ca_counties.c03x04003_gvid = p045004_poverty_age_raceeth.c04505002_county_gvid
-WHERE c03x04004_state = 6 and c04505009_race_eth != 'all' and c04505004_age_group = '0'
-
-VIEW: poverty_raceeth_renamed
-
 SELECT 
-c04505003_year	AS	year	,
+c04502003_year	AS	year	,
 c03x04006_name	AS	county_name	,
-c04505009_race_eth	AS	race_ethnicity	,
-c0450500a_poverty_count	AS	number_in_poverty	,
-c0450500b_poverty_count_m	AS	number_in_poverty_m	,
-c0450500c_poverty_pct	AS	percent_in_poverty	,
-c0450500d_poverty_pct_m	AS	percent_in_poverty_m	,
-c0450500e_poverty_moe_ratio	AS	poverty_moe_ratio
-
-FROM poverty_raceeth
-
+c04502008_race_eth	AS	race_ethnicity	,
+c04502009_below_poverty_count	AS	number_in_poverty	,
+c0450200a_below_poverty_count_m	AS	number_in_poverty_m	,
+c0450200b_below_poverty_pct	AS	percent_in_poverty	,
+c0450200c_below_poverty_pct_m	AS	percent_in_poverty_m	,
+c0450200d_below_poverty_cv	AS	poverty_cv,
+c0450200i_below_poverty_pct_cv	AS poverty_pct_cv
+FROM poverty_raceeth_full
 
 VIEW: poverty
 
-SELECT * FROM p045004_poverty_age_raceeth
-JOIN ca_counties ON ca_counties.c03x04003_gvid = p045004_poverty_age_raceeth.c04505002_county_gvid
-WHERE c03x04004_state = 6 and c04505009_race_eth = 'all' and c04505004_age_group = '0'
-
-
-VIEW: poverty_renamed
-
 SELECT
-c04505003_year	year	,
+c04502003_year	year	,
 c03x04006_name	county_name, 
-c0450500a_poverty_count	number_in_poverty	,
-c0450500b_poverty_count_m	number_in_poverty_m	,
-c0450500c_poverty_pct	percent_in_poverty	,
-c0450500d_poverty_pct_m	percent_in_poverty_m	,
-c0450500e_poverty_moe_ratio	poverty_moe_ratio
-FROM poverty;
+c04502009_below_poverty_count	number_in_poverty	,
+c0450200a_below_poverty_count_m	number_in_poverty_m	,
+c0450200b_below_poverty_pct	percent_in_poverty	,
+c0450200c_below_poverty_pct_m	percent_in_poverty_m	,
+c0450200d_below_poverty_cv	AS	poverty_cv,
+c0450200i_below_poverty_pct_cv	AS poverty_pct_cv
+FROM poverty_full;
 
