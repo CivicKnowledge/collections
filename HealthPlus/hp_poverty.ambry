@@ -21,13 +21,11 @@ census.gov-acs-p5ye2013-b17001
 civicknowledge.com-poverty-poverty_age_sex_raceeth
 civicknowledge.com-poverty-poverty_age_raceeth
 
-
 VIEW: b17001
 
 SELECT * FROM p03w05c_b17001
 JOIN ca_counties ON ca_counties.c03x04003_gvid = c03w74005_gvid
 WHERE c03x04004_state = 6 
-
 
 VIEW: poverty_age_full
 
@@ -41,9 +39,6 @@ VIEW: poverty_raceeth_full
 SELECT * FROM p045004_poverty_age_raceeth
 JOIN ca_counties ON ca_counties.c03x04003_gvid = p045004_poverty_age_raceeth.c04502002_county_gvid
 WHERE c03x04004_state = 6 and c04502008_race_eth != 'all' and c04502004_age_group = '0'
-
-
-
 
 
 VIEW: poverty_full
