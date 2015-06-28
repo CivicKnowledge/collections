@@ -1,0 +1,133 @@
+TITLE: Housing Data Extracted from ACS
+
+A selection of housing tables, with computed rates and coefficients of variation, extracted from the 2013 5 year ACS. 
+
+AUTHOR: Eric Busboom <eric@civicknowledge.com>
+UID: mMwpHi0Nov
+
+PARTITIONS:
+
+census.gov-index-counties
+
+VIEW: ca_counties
+
+SELECT * FROM p03x002005_counties WHERE c03x04004_state = 6;
+
+PARTITIONS:
+
+civicknowledge.com-housing-asked_rent
+civicknowledge.com-housing-contracted_rent
+civicknowledge.com-housing-gross_rent
+civicknowledge.com-housing-housing_units
+civicknowledge.com-housing-mortgage_cost
+civicknowledge.com-housing-no_mortgage_cost
+civicknowledge.com-housing-occupied_housing_units
+civicknowledge.com-housing-owner_cost
+civicknowledge.com-housing-owner_housing_units
+civicknowledge.com-housing-rental_housing_units
+civicknowledge.com-housing-renter_cost
+civicknowledge.com-housing-vacant_housing_units
+
+
+PARTITIONS: --table asked_rent  --index ca_counties
+
+civicknowledge.com-housing-asked_rent
+
+DOC:
+
+For vacant rental units, the average advertised rent. 
+
+
+PARTITIONS: --table contracted_rent  --index ca_counties
+
+civicknowledge.com-housing-contracted_rent
+
+DOC:
+
+For non-vacant rental units, the rent amount agreed to between the renter and landlord. 
+
+PARTITIONS: --table gross_rent  --index ca_counties
+
+civicknowledge.com-housing-gross_rent
+
+DOC:
+
+Gross rent is the contract rent plus the estimated average monthly cost of utilities. Gross rent includes electricity, gas, and water and sewer and fuels (oil, coal, kerosene, wood, etc.) if these are paid by the renter (or paid for the renter by someone else). 
+
+
+PARTITIONS: --table housing_units  --index ca_counties
+
+civicknowledge.com-housing-housing_units
+
+DOC:
+
+Estimates of total number of housing units in the area.
+
+PARTITIONS: --table mortgage_cost  --index ca_counties
+
+civicknowledge.com-housing-mortgage_cost
+
+DOC:
+
+Estimates of count of  owners, for units with a mortgage, with housing costs over 30% of income.
+
+PARTITIONS: --table no_mortgage_cost  --index ca_counties
+
+civicknowledge.com-housing-no_mortgage_cost
+
+DOC:
+
+Estimates of count of  owners, for units without a mortgage, with housing costs over 30% of income.
+
+PARTITIONS: --table occupied_housing_units  --index ca_counties
+
+civicknowledge.com-housing-occupied_housing_units
+
+DOC:
+
+Estimates of count of occupied housing units. 
+
+PARTITIONS: --table owner_cost  --index ca_counties
+
+civicknowledge.com-housing-owner_cost
+
+DOC:
+
+Estimates of count of  owners, regardless of mortgage status, with housing costs over 30% of income.
+
+PARTITIONS: --table owner_housing_units  --index ca_counties
+
+civicknowledge.com-housing-owner_housing_units
+
+DOC:
+
+Estimates of count of owner occupied housing units.
+
+PARTITIONS: --table renter_cost  --index ca_counties
+
+civicknowledge.com-housing-renter_cost
+
+DOC:
+
+Estimates of count of renters with housing cost over 30% of income.
+
+PARTITIONS: --table vacant_housing_units  --index ca_counties
+
+civicknowledge.com-housing-vacant_housing_units
+
+DOC:
+
+Estimates of count of vacant housing units.
+
+
+
+
+
+
+
+
+
+
+
+
+
