@@ -3,11 +3,17 @@ All HealthPlus Datasets
 UID: miC3MZNbxq
 AUTHOR: Eric Busboom <eric@sandiegodata.org>
 
-cdc.gov-brfss-county-brfss_county
-cde.ca.gov-api-combined-api_base
 
 
 DOC:
+
+oshpd.ca.gov-hmsa-dental-geo
+oshpd.ca.gov-hmsa-mental-geo
+oshpd.ca.gov-hmsa-nurse-geo
+oshpd.ca.gov-hmsa-primarycare-geo
+oshpd.ca.gov-hmsa-primarypro-geo
+
+PARTITIONS: 
 
 cdc.gov-brfss-county-brfss_county
 cde.ca.gov-api-combined-api_base
@@ -31,12 +37,6 @@ cdph.ca.gov-immunization-schools-child_care
 cdph.ca.gov-immunization-schools-g12
 cdph.ca.gov-immunization-schools-g7
 cdph.ca.gov-immunization-schools-kinder
-
-oshpd.ca.gov-hmsa-dental-geo
-oshpd.ca.gov-hmsa-mental-geo
-oshpd.ca.gov-hmsa-nurse-geo
-oshpd.ca.gov-hmsa-primarycare-geo
-oshpd.ca.gov-hmsa-primarypro-geo
 
 oshpd.ca.gov-iqi-mortality-conditions
 oshpd.ca.gov-iqi-mortality-indicators
