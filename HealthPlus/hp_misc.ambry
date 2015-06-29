@@ -1,0 +1,43 @@
+Title: Misc HealthPlus Datasets
+
+Datasets for Health Plus that have been converted, but not indexed, and are not used in other collections. 
+
+UID: miC3MZNbxq
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+
+
+DOC:
+
+oshpd.ca.gov-hmsa-dental-geo
+oshpd.ca.gov-hmsa-mental-geo
+oshpd.ca.gov-hmsa-nurse-geo
+oshpd.ca.gov-hmsa-primarycare-geo
+oshpd.ca.gov-hmsa-primarypro-geo
+
+PARTITIONS: 
+
+cdc.gov-brfss-county-brfss_county
+cde.ca.gov-api-combined-api_base
+
+cde.ca.gov-celdt-celdt-2011
+cde.ca.gov-celdt-celdt-2012
+cde.ca.gov-celdt-celdt-2013
+
+cde.ca.gov-enrollment-1993e-enroll09
+
+cde.ca.gov-schools-dist_index
+cde.ca.gov-schools-school_index
+cde.ca.gov-schools-schools
+
+cde.ca.gov-star-orig-star-2010
+cde.ca.gov-star-orig-star-2011
+cde.ca.gov-star-orig-star-2012
+
+cdph.ca.gov-facilities-facilities
+cdph.ca.gov-immunization-schools-child_care
+cdph.ca.gov-immunization-schools-g12
+cdph.ca.gov-immunization-schools-g7
+cdph.ca.gov-immunization-schools-kinder
+
+oshpd.ca.gov-utilization-hosp_util
+
