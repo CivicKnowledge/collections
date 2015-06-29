@@ -1,9 +1,7 @@
 TITLE: HealthPlus Datasets, Indexed to Counties
 
-
 AUTHOR: Eric Busboom <eric@civicknowledge.com>
 UID: mtZ6dkOqQq
-
 
 PARTITIONS:
 
@@ -28,4 +26,3 @@ oshpd.ca.gov-iqi-mortality-procedures
 oshpd.ca.gov-msdrg-county-msdrg_county
 oshpd.ca.gov-msdgr-top25-msdrgs
 cdc.gov-brfss-county-brfss_county
-
