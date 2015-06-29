@@ -1,0 +1,20 @@
+TITLE: San Diego Home Mortgage Disclosure Act
+
+
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+UID: mOnzwnd5hY
+
+PARTITIONS:
+
+census.gov-index-tracts
+
+ffiec.gov-hmda-2010e-lar-2010-ca
+ffiec.gov-hmda-2010e-lar-2011-ca
+ffiec.gov-hmda-2010e-lar-2012-ca
+ffiec.gov-hmda-2010e-lar-2013-ca
+
+ffiec.gov-hmda-2010e-ts
+
+
+
+
