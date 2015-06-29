@@ -3,11 +3,8 @@ All HealthPlus Datasets
 UID: miC3MZNbxq
 AUTHOR: Eric Busboom <eric@sandiegodata.org>
 
-cdc.gov-brfss-county-brfss_county
-cde.ca.gov-api-combined-api_base
 
-
-DOC:
+PARTITIONS:
 
 cdc.gov-brfss-county-brfss_county
 cde.ca.gov-api-combined-api_base
