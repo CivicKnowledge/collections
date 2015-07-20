@@ -1,0 +1,47 @@
+TITLE: Housing Data, By Tract,  Extracted from ACS
+
+A selection of housing tables, with computed rates and coefficients of variation, extracted from the 2013 5 year ACS. 
+
+AUTHOR: Eric Busboom <eric@civicknowledge.com>
+UID: mIoyuBopfs
+
+PARTITIONS:
+
+census.gov-index-tracts
+census.gov-index-counties
+
+VIEW: ca_counties
+
+SELECT * FROM p03x002005_counties WHERE c03x04004_state = 6;
+
+INDEX: gvid_1 ON p03x002005_counties c03x04003_gvid
+
+VIEW: ca_tracts
+
+SELECT * FROM p03x005005_tracts WHERE c03x08004_state = 6;
+
+INDEX: gvid_2 ON p03x005005_tracts c03x08003_gvid
+
+PARTITIONS:
+
+civicknowledge.com-housing-housing
+
+INDEX: gvid_3 ON p04a001003_housing c04a02002_gvid
+
+VIEW: housing_counties
+
+SELECT * FROM ca_counties JOIN p04a001_housing ON c03x04003_gvid = c04a02002_gvid;
+
+
+VIEW: housing_tracts
+
+SELECT * FROM ca_tracts JOIN p04a001_housing ON c03x08003_gvid = c04a02002_gvid;
+
+
+
+
+
+
+
+
+
