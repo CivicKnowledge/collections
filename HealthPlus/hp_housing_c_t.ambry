@@ -47,9 +47,13 @@ All housing tables combined, indexed to counties
 
 VIEW: housing_tracts
 
-SELECT * FROM ca_tracts JOIN p04a001_housing ON c03x08003_gvid = c04a02002_gvid;
+SELECT * FROM ca_tracts 
+JOIN p04a001_housing ON c03x08003_gvid = c04a02002_gvid
+JOIN ca_counties ON c03x04005_county = c03x08005_county;
 
+DOC: 
 
+All housing tables combined, indexed to tracts
 
 
 
