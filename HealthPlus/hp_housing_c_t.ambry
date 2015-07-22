@@ -48,7 +48,7 @@ All housing tables combined, indexed to counties
 VIEW: housing_tracts
 
 SELECT *, 
-substr('0000'||substr(c03x08006_tract, -2, -4 )||"."||substr(c03x08006_tract, -2), -7, 7) as census_tract,
+substr('0000'||substr(c03x08006_tract, -2, -4 )||"."||substr(c03x08006_tract, -2), -7, 7) as census_tract
 FROM ca_tracts 
 JOIN ca_counties ON c03x04005_county = c03x08005_county
 JOIN p04a001_housing ON c03x08003_gvid = c04a02002_gvid
@@ -57,9 +57,6 @@ JOIN p04a001_housing ON c03x08003_gvid = c04a02002_gvid
 DOC: 
 
 All housing tables combined, indexed to tracts
-
-
-select c03x08006_tract, substr('0000'||substr(c03x08006_tract, -2, -4 )||"."||substr(c03x08006_tract, -2), -7, 7),  c03x08009_name from housing_tracts WHERE length(c03x08006_tract) == 6 limit 10;
 
 
 
