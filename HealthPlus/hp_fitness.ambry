@@ -1,0 +1,113 @@
+Title: California Dept of Education Fitness Tests
+
+[Fitness test results](http://www.cde.ca.gov/ta/tg/pf/) from the California Department of Education
+
+UID: m6gjWWZWbC
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+
+
+PARTITIONS:
+
+cde.ca.gov-fitness-pivoted-fitness-2014-county_economic
+cde.ca.gov-fitness-pivoted-fitness-2014-county_ethnicity
+cde.ca.gov-fitness-pivoted-fitness-2014-county_fit
+cde.ca.gov-fitness-pivoted-fitness-2014-county_gender
+cde.ca.gov-fitness-pivoted-fitness-2014-county_meethfz
+cde.ca.gov-fitness-entities_10_14
+
+VIEW: counties
+
+SELECT
+    c04j06003_ccode,
+    c04j06008_county
+FROM p04j006_entities_10_14
+WHERE c04j06002_year = 2014
+GROUP BY c04j06003_ccode
+
+VIEW: fitness_by_ethnicity
+
+SELECT
+    c04j06008_county,
+    c04t01004_grade, 
+    c04t01003_year,
+    c04t0100c_line_text	AS c04t0100c_race_eth, 
+    c04t0100f_students_tested,
+    c04t0100h_pct_in_hfz as c04t0100h_pct_of_total_tested
+FROM p04t01g_fitness_county_ethnicity
+JOIN counties on c04t01009_co = c04j06003_ccode
+WHERE c04t01003_year = 2014
+
+DOC:
+
+The pct_of_total_tested value is the percentage of students tested with the given race / ethnicity. This is a demographic statistic for the tested population, and is not an indication of the fitness of the students. 
+
+VIEW: fitness_by_economic_status
+
+SELECT
+    c04j06008_county,
+    c04t01004_grade,
+    c04t01003_year,
+    c04t0100c_line_text	AS c04t0100c_economic_status, 
+    c04t0100f_students_tested,
+    c04t0100h_pct_in_hfz  as c04t0100h_pct_of_total_tested
+FROM  p04t01h_fitness_county_economic
+JOIN counties on c04t01009_co = c04j06003_ccode
+WHERE c04t01003_year = 2014
+
+DOC:
+
+The pct_of_total_tested value is the percentage of students tested with the given economic status. This is a demographic statistic for the tested population, and is not an indication of the fitness of the students. 
+
+VIEW: fitness_by_num_standards
+
+SELECT
+    c04j06008_county,
+    c04t01004_grade,
+    c04t01003_year,
+    c04t0100c_line_text	AS c04t0100c_num_standards, 
+    c04t0100f_students_tested,
+    c04t0100h_pct_in_hfz as c04t0100h_pct_meeting_standard,
+    c04t0100i_pct_needs_imp as c04t0100i_cumumlative_pct
+FROM  p04t01e_fitness_county_meethfz
+JOIN counties on c04t01009_co = c04j06003_ccode
+WHERE c04t01003_year = 2014
+
+DOC:
+
+The pct_meeting_standard value is the percentage of students test who met the given number of fitness standards. The cumumlative_pct value is the percentage of students who met that number of standards or more. 
+
+VIEW: fitness_by_fitness_test
+
+SELECT
+    c04j06008_county,
+    c04t01004_grade,
+    c04t01003_year,
+    c04t0100c_line_text	AS c04t0100c_fitness_test, 
+    c04t0100f_students_tested,
+    c04t0100h_pct_in_hfz as c04t0100h_pct_passing,
+    c04t0100i_pct_needs_imp as c04t0100i_pct_needs_imp
+FROM  p04t01d_fitness_county_fit
+JOIN counties on c04t01009_co = c04j06003_ccode
+WHERE c04t01003_year = 2014
+
+DOC:
+
+The pct_passing and pct_needs_imp is the percentage of students who passed ( or did not pass )  each individual fitness test.
+
+VIEW: fitness_by_gender
+
+SELECT
+    c04j06008_county,
+    c04t01004_grade,
+    c04t01003_year,
+    c04t0100c_line_text	AS c04t0100c_gender, 
+    c04t0100f_students_tested,
+    c04t0100h_pct_in_hfz as pc04t0100h_pct_of_total_tested
+FROM  p04t01f_fitness_county_gender
+JOIN counties on c04t01009_co = c04j06003_ccode
+WHERE c04t01003_year = 2014
+
+DOC:
+
+The pct_of_total_tested value is the percentage of students tested with the given gender. This is a demographic statistic for the tested population, and is not an indication of the fitness of the students. 
+
