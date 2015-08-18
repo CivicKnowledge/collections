@@ -1,0 +1,85 @@
+Title: Health Communities Indicators, Food Affordability
+
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+
+UID: mAivtQHYwy
+
+PARTITIONS:
+
+cdph.ca.gov-hci-food_affordability-0.0.1
+census.gov-index-counties
+
+VIEW: ca_counties
+
+SELECT * FROM p03x002005_counties WHERE c03x04004_state = 6;
+
+
+VIEW: food_afford_counties
+
+SELECT 
+c04p09009_geoname AS c04p09009_county,
+c04p0900f_median_income,
+c04p0900n_ave_fam_size,
+c04p0900g_affordability_ratio,
+c04p0900h_ll95_affordability_ratio,
+c04p0900i_ul95_affordability_ratio,
+c04p0900k_rse_food_afford as c04p0900k_affordability_ratio_cv
+FROM p04p009_food_affordability
+WHERE c04p09007_geotype == 'CO' AND c04p09006_race_eth_name = 'Total'
+
+DOC:
+
+Food affordability for female-headed household with children under 18 years, by county, for all races.
+
+VIEW: food_afford_counties_race
+
+SELECT 
+c04p09009_geoname AS c04p09009_county,
+c04p09005_race_eth_code, 
+c04p09006_race_eth_name,
+c04p0900f_median_income,
+c04p0900n_ave_fam_size,
+c04p0900g_affordability_ratio,
+c04p0900h_ll95_affordability_ratio,
+c04p0900i_ul95_affordability_ratio,
+c04p0900k_rse_food_afford as c04p0900k_affordability_ratio_cv
+FROM p04p009_food_affordability
+WHERE c04p09007_geotype == 'CO' AND c04p09006_race_eth_name != 'Total'
+
+DOC:
+
+Food affordability for female-headed household with children under 18 years, by county, by race.
+
+VIEW: food_afford_place
+
+SELECT 
+c04p09009_geoname AS c04p09009_place,
+c04p0900f_median_income,
+c04p0900n_ave_fam_size,
+c04p0900g_affordability_ratio,
+c04p0900h_ll95_affordability_ratio,
+c04p0900i_ul95_affordability_ratio,
+c04p0900k_rse_food_afford as c04p0900k_affordability_ratio_cv
+FROM p04p009_food_affordability
+WHERE c04p09007_geotype == 'PL' AND c04p09006_race_eth_name = 'Total'
+
+DOC:
+
+Food affordability for female-headed household with children under 18 years, by census-defined place, for all races.
+
+VIEW: food_afford_place_race
+
+SELECT 
+c04p09009_geoname AS c04p09009_place_race,
+c04p0900f_median_income,
+c04p0900n_ave_fam_size,
+c04p0900g_affordability_ratio,
+c04p0900h_ll95_affordability_ratio,
+c04p0900i_ul95_affordability_ratio,
+c04p0900k_rse_food_afford as c04p0900k_affordability_ratio_cv
+FROM p04p009_food_affordability
+WHERE c04p09007_geotype == 'PL' AND c04p09006_race_eth_name != 'Total'
+
+DOC:
+
+Food affordability for female-headed household with children under 18 years, by census-defined place, by race.
