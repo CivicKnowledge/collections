@@ -1,0 +1,43 @@
+Title: Health Communities Indicators, Unemployment
+
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+
+UID: mmHUfENIwv
+
+PARTITIONS:
+
+cdph.ca.gov-hci-unemployment
+census.gov-index-counties
+
+VIEW: ca_counties
+
+SELECT * FROM p03x002005_counties WHERE c03x04004_state = 6;
+
+VIEW: unemployment_counties
+
+SELECT 
+    c04p01004_reportyear, 
+    c04p0100b_county_name, 
+    c04p0100a_county_fips, 
+    c04p0100e_unemployment, 
+    c04p0100f_labor_force, 
+    c04p0100g_unemployment_rate,
+    c04p0100k_rse AS c04p0100k_cv
+    
+FROM p04p001_unemployment
+WHERE c04p01007_geotype = 'CO' AND c04p01006_race_eth_name = 'Total'
+
+VIEW: unemployment_counties_raceeth
+
+SELECT 
+    c04p01004_reportyear, 
+    c04p01006_race_eth_name,
+    c04p0100b_county_name, 
+    c04p0100a_county_fips, 
+    c04p0100e_unemployment, 
+    c04p0100f_labor_force, 
+    c04p0100g_unemployment_rate,
+    c04p0100k_rse AS c04p0100k_cv
+    
+FROM p04p001_unemployment
+WHERE c04p01007_geotype = 'CO' AND c04p01006_race_eth_name != 'Total'
