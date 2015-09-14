@@ -1,4 +1,4 @@
-Title: Health Communities Indicators, Food Affordability
+Title: Healthy Communities Indicators, Health Food and Food Affordability
 
 AUTHOR: Eric Busboom <eric@sandiegodata.org>
 
@@ -6,7 +6,8 @@ UID: mAivtQHYwy
 
 PARTITIONS:
 
-cdph.ca.gov-hci-food_affordability-0.0.1
+cdph.ca.gov-hci-food_affordability
+cdph.ca.gov-hci-healthy_food
 census.gov-index-counties
 
 VIEW: ca_counties
@@ -70,7 +71,7 @@ Food affordability for female-headed household with children under 18 years, by 
 VIEW: food_afford_place_race
 
 SELECT 
-c04p09009_geoname AS c04p09009_place
+c04p09009_geoname AS c04p09009_place,
 c04p09005_race_eth_code,
 c04p09006_race_eth_name, 
 c04p0900f_median_income,
@@ -85,3 +86,70 @@ WHERE c04p09007_geotype == 'PL' AND c04p09006_race_eth_name != 'Total'
 DOC:
 
 Food affordability for female-headed household with children under 18 years, by census-defined place, by race.
+
+
+VIEW: healthy_food_counties
+
+SELECT
+c04p0y004_reportyear,
+c04p0y00a_county_name,
+c04p0y00e_mrfei,
+c04p0y00f_ll95ci,
+c04p0y00g_ul95ci,
+c04p0y00i_rse
+FROM p04p00B_healthy_food
+WHERE c04p0y007_geotype == 'CO' AND c04p0y005_race_eth_name = 'Total'
+
+DOC:
+
+USDA's Modified Retail Food Environment Index (mRFEI), by county, for all races
+
+VIEW: healthy_food_counties_raceeth
+
+SELECT
+c04p0y004_reportyear,
+c04p0y005_race_eth_name,
+c04p0y00a_county_name,
+c04p0y00e_mrfei,
+c04p0y00f_ll95ci,
+c04p0y00g_ul95ci,
+c04p0y00i_rse
+FROM p04p00B_healthy_food
+WHERE c04p0y007_geotype == 'CO' AND c04p0y005_race_eth_name != 'Total'
+
+DOC:
+
+USDA's Modified Retail Food Environment Index (mRFEI), by county, by race.
+
+VIEW: healthy_food_places
+
+SELECT
+c04p0y004_reportyear,
+c04p0y00a_county_name,
+c04p0y00e_mrfei,
+c04p0y00f_ll95ci,
+c04p0y00g_ul95ci,
+c04p0y00i_rse
+FROM p04p00B_healthy_food
+WHERE c04p0y007_geotype == 'PL' AND c04p0y005_race_eth_name = 'Total'
+
+DOC:
+
+USDA's Modified Retail Food Environment Index (mRFEI), by place, for all races
+
+VIEW: healthy_food_places_raceeth
+
+SELECT
+c04p0y004_reportyear,
+c04p0y005_race_eth_name,
+c04p0y00a_county_name,
+c04p0y00e_mrfei,
+c04p0y00f_ll95ci,
+c04p0y00g_ul95ci,
+c04p0y00i_rse
+FROM p04p00B_healthy_food
+WHERE c04p0y007_geotype == 'PL' AND c04p0y005_race_eth_name != 'Total'
+
+DOC:
+
+USDA's Modified Retail Food Environment Index (mRFEI), by place, by race.

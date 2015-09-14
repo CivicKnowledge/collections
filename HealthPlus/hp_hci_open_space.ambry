@@ -1,0 +1,84 @@
+Title: Healthy Communities Indicators, Open Space
+
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+
+UID: mpiXvPzaAu
+
+PARTITIONS:
+
+cdph.ca.gov-hci-open_space
+census.gov-index-counties
+
+VIEW: open_space_counties
+
+SELECT 
+c04p07004_reportyear,
+c04p0700a_county_name,
+c04p0700e_pop_park_acc,
+c04p0700f_pop2010,
+c04p0700g_p_parkacc,
+c04p0700h_ll_95ci,
+c04p0700i_ul_95ci,
+c04p0700k_rse
+FROM p04p007_open_space
+WHERE c04p07007_geotype == 'CO' AND c04p07006_race_eth_name = 'Total'
+
+DOC:
+
+Access to Parks: Percent of residents within 1/2 mile of a park, beach, or open space, by county, all races.
+
+VIEW: open_space_counties_raceeth
+
+SELECT 
+c04p07004_reportyear,
+c04p0700a_county_name,
+c04p07006_race_eth_name,
+c04p0700e_pop_park_acc,
+c04p0700f_pop2010,
+c04p0700g_p_parkacc,
+c04p0700h_ll_95ci,
+c04p0700i_ul_95ci,
+c04p0700k_rse
+FROM p04p007_open_space
+WHERE c04p07007_geotype == 'CO' AND c04p07006_race_eth_name != 'Total'
+
+DOC:
+
+Access to Parks: Percent of residents within 1/2 mile of a park, beach, or open space, by county, by race.
+
+VIEW: open_space_places
+
+SELECT 
+c04p07004_reportyear,
+c04p0700a_county_name,
+c04p0700e_pop_park_acc,
+c04p0700f_pop2010,
+c04p0700g_p_parkacc,
+c04p0700h_ll_95ci,
+c04p0700i_ul_95ci,
+c04p0700k_rse
+FROM p04p007_open_space
+WHERE c04p07007_geotype == 'PL' AND c04p07006_race_eth_name = 'Total'
+
+DOC:
+
+Access to Parks: Percent of residents within 1/2 mile of a park, beach, or open space, by place, all races.
+
+VIEW: open_space_places_raceeth
+
+SELECT 
+c04p07004_reportyear,
+c04p0700a_county_name,
+c04p07006_race_eth_name,
+c04p0700e_pop_park_acc,
+c04p0700f_pop2010,
+c04p0700g_p_parkacc,
+c04p0700h_ll_95ci,
+c04p0700i_ul_95ci,
+c04p0700k_rse
+FROM p04p007_open_space
+WHERE c04p07007_geotype == 'PL' AND c04p07006_race_eth_name != 'Total'
+
+DOC:
+
+Access to Parks: Percent of residents within 1/2 mile of a park, beach, or open space, by place, by race.
