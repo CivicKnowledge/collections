@@ -22,8 +22,7 @@ SELECT
     c04p0100e_unemployment, 
     c04p0100f_labor_force, 
     c04p0100g_unemployment_rate,
-    c04p0100k_rse AS c04p0100k_cv
-    
+    c04p0100k_rse AS c04p0100k_cv   
 FROM p04p001_unemployment
 WHERE c04p01007_geotype = 'CO' AND c04p01006_race_eth_name = 'Total'
 

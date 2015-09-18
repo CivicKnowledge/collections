@@ -1,43 +1,51 @@
-Title: Healthy Communities Indicators, Unemployment
+Title: Healthy Communities Indicators, Education
+
+High School or Greater Educational Attainment in the Population Aged 25 Years and Older
 
 AUTHOR: Eric Busboom <eric@sandiegodata.org>
 
-UID: mmHUfENIwv
+UID: mu6WxCGKLI
 
 PARTITIONS:
 
-cdph.ca.gov-hci-unemployment
-census.gov-index-counties
+cdph.ca.gov-hci-high_school_ed
 
-VIEW: ca_counties
-
-SELECT * FROM p03x002005_counties WHERE c03x04004_state = 6;
-
-VIEW: unemployment_counties
+VIEW: high_school_ed_counties
 
 SELECT 
-    c04p01004_reportyear, 
-    c04p0100b_county_name, 
-    c04p0100a_county_fips, 
-    c04p0100e_unemployment, 
-    c04p0100f_labor_force, 
-    c04p0100g_unemployment_rate,
-    c04p0100k_rse AS c04p0100k_cv
-    
-FROM p04p001_unemployment
-WHERE c04p01007_geotype = 'CO' AND c04p01006_race_eth_name = 'Total'
+    c04p0o004_reportyear,
+    c04p0o00a_county_name, 
+    c04p0o00b_county_fips, 
+    c04p0o00e_pop25pl_hs, 
+    c04p0o00f_pop25pl, 
+    c04p0o00g_p_hs_edatt,
+    c04p0o00j_ll_95ci,
+    c04p0o00k_ul_95ci,
+    c04p0o00i_rse AS c04p0100k_cv
+FROM p04p00p_high_school_ed
+WHERE c04p0o007_geotype = 'CO' AND c04p0o006_race_eth_name = 'Total'
 
-VIEW: unemployment_counties_raceeth
+DOC: 
+
+High School or Greater Educational Attainment in the Population Aged 25 Years and Older, by counties, for all races
+
+
+VIEW: high_school_ed_counties_raceeth
 
 SELECT 
-    c04p01004_reportyear, 
-    c04p01006_race_eth_name,
-    c04p0100b_county_name, 
-    c04p0100a_county_fips, 
-    c04p0100e_unemployment, 
-    c04p0100f_labor_force, 
-    c04p0100g_unemployment_rate,
-    c04p0100k_rse AS c04p0100k_cv
-    
-FROM p04p001_unemployment
-WHERE c04p01007_geotype = 'CO' AND c04p01006_race_eth_name != 'Total'
+    c04p0o004_reportyear,
+    c04p0o006_race_eth_name,
+    c04p0o00a_county_name, 
+    c04p0o00b_county_fips, 
+    c04p0o00e_pop25pl_hs, 
+    c04p0o00f_pop25pl, 
+    c04p0o00g_p_hs_edatt,
+    c04p0o00j_ll_95ci,
+    c04p0o00k_ul_95ci,
+    c04p0o00i_rse AS c04p0100k_cv
+FROM p04p00p_high_school_ed
+WHERE c04p0o007_geotype = 'CO' AND c04p0o006_race_eth_name != 'Total'
+
+DOC: 
+
+High School or Greater Educational Attainment in the Population Aged 25 Years and Older, by counties, by race

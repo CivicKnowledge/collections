@@ -1,0 +1,47 @@
+Title: Healthy Communities Indicators, Income Inequality
+
+Household income relative to the number of households
+
+AUTHOR: Eric Busboom <eric@sandiegodata.org>
+
+UID: mtoXxlBsJR
+
+PARTITIONS:
+
+cdph.ca.gov-hci-income_inequality
+
+VIEW: income_inequality_counties
+
+SELECT
+c04p0r004_reportyear,
+c04p0r00a_county_name,
+c04p0r00b_county_fips,
+c04p0r00g_gini_index,
+c04p0r00h_ll_95ci,
+c04p0r00i_ul_95ci,
+c04p0r00k_rse
+FROM p04p00s_income_inequality
+WHERE c04p0r007_geotype = 'CO' AND c04p0r006_race_eth_name = 'Total'
+
+DOC:
+
+Household income relative to the number of households, by county, for all races.
+
+VIEW: income_inequality_counties_raceeth
+
+SELECT
+c04p0r004_reportyear,
+c04p0r006_race_eth_name,
+c04p0r00a_county_name,
+c04p0r00b_county_fips,
+c04p0r00g_gini_index,
+c04p0r00h_ll_95ci,
+c04p0r00i_ul_95ci,
+c04p0r00k_rse
+FROM p04p00s_income_inequality
+WHERE c04p0r007_geotype = 'CO' AND c04p0r006_race_eth_name != 'Total'
+
+DOC:
+
+Household income relative to the number of households, by county, by race.
+
